@@ -143,7 +143,7 @@
                <h3 class="section-title section-title-normal">
                   <b></b>
                   <span class="section-title-main short-underline" style="color:rgb(67, 142, 240);">
-                     TIÊU ĐIỂM TƯỚNG TQHT Gia Cát Quả
+                     TIÊU ĐIỂM TƯỚNG TQHT
                   </span>
                   <b></b>
                </h3>
@@ -168,127 +168,56 @@
                         "groupCells": 6
                      }'>
 
-                     <!-- Item 1 -->
+                     <?php
+                     $args = array(
+                        'post_type'      => 'quan_ly_tuong',
+                        'posts_per_page' => 10,
+                        'post_status'    => 'publish',
+                     );
+                     $query = new WP_Query($args);
+
+                     if ($query->have_posts()) :
+                        while ($query->have_posts()) : $query->the_post();
+                           $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
+                           if (!$thumb_url) {
+                              $thumb_url = get_template_directory_uri() . '/assets/images/no-image.jpg'; // fallback image
+                           }
+                     ?>
                      <div class="col medium-2 small-6 large-2">
                         <div class="col-inner">
                            <div class="box has-hover box-text-bottom">
                               <div class="box-image">
-                                 <img src="http://localhost/wordpress/wp-content/uploads/2025/10/778462b94d3646cedaf7d4d4860682c683382cf6.png" alt="tướng">
+                                 <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>">
                               </div>
                               <div class="box-text text-center">
-                                 <a class="button primary is-outline" style="border-radius:99px;">
-                                    <span>Gia Cát Quả</span>
+                                 <a href="<?php the_permalink(); ?>" class="button primary is-outline" style="border-radius:99px;">
+                                    <span><?php the_title(); ?></span>
                                  </a>
                               </div>
                            </div>
                         </div>
                      </div>
-
-                     <!-- Item 2 -->
-                     <div class="col medium-2 small-6 large-2">
-                        <div class="col-inner">
-                           <div class="box has-hover box-text-bottom">
-                              <div class="box-image">
-                                 <img src="http://localhost/wordpress/wp-content/uploads/2025/10/778462b94d3646cedaf7d4d4860682c683382cf6.png" alt="tướng">
-                              </div>
-                              <div class="box-text text-center">
-                                 <a class="button primary is-outline" style="border-radius:99px;">
-                                    <span>Triệu Vân</span>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     <!-- Item 3 -->
-                     <div class="col medium-2 small-6 large-2">
-                        <div class="col-inner">
-                           <div class="box has-hover box-text-bottom">
-                              <div class="box-image">
-                                 <img src="http://localhost/wordpress/wp-content/uploads/2025/10/778462b94d3646cedaf7d4d4860682c683382cf6.png" alt="tướng">
-                              </div>
-                              <div class="box-text text-center">
-                                 <a class="button primary is-outline" style="border-radius:99px;">
-                                    <span>Lưu Bị</span>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     <!-- Item 4 -->
-                     <div class="col medium-2 small-6 large-2">
-                        <div class="col-inner">
-                           <div class="box has-hover box-text-bottom">
-                              <div class="box-image">
-                                 <img src="http://localhost/wordpress/wp-content/uploads/2025/10/778462b94d3646cedaf7d4d4860682c683382cf6.png" alt="tướng">
-                              </div>
-                              <div class="box-text text-center">
-                                 <a class="button primary is-outline" style="border-radius:99px;">
-                                    <span>Lưu Bị</span>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     <!-- Item 5 -->
-                     <div class="col medium-2 small-6 large-2">
-                        <div class="col-inner">
-                           <div class="box has-hover box-text-bottom">
-                              <div class="box-image">
-                                 <img src="http://localhost/wordpress/wp-content/uploads/2025/10/778462b94d3646cedaf7d4d4860682c683382cf6.png" alt="tướng">
-                              </div>
-                              <div class="box-text text-center">
-                                 <a class="button primary is-outline" style="border-radius:99px;">
-                                    <span>Lưu Bị</span>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     <!-- Item 6 -->
-                     <div class="col medium-2 small-6 large-2">
-                        <div class="col-inner">
-                           <div class="box has-hover box-text-bottom">
-                              <div class="box-image">
-                                 <img src="http://localhost/wordpress/wp-content/uploads/2025/10/778462b94d3646cedaf7d4d4860682c683382cf6.png" alt="tướng">
-                              </div>
-                              <div class="box-text text-center">
-                                 <a class="button primary is-outline" style="border-radius:99px;">
-                                    <span>Lưu Bị</span>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     <div class="col medium-2 small-6 large-2">
-                        <div class="col-inner">
-                           <div class="box has-hover box-text-bottom">
-                              <div class="box-image">
-                                 <img src="http://localhost/wordpress/wp-content/uploads/2025/10/778462b94d3646cedaf7d4d4860682c683382cf6.png" alt="tướng">
-                              </div>
-                              <div class="box-text text-center">
-                                 <a class="button primary is-outline" style="border-radius:99px;">
-                                    <span>Lưu Bị</span>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
+                     <?php
+                        endwhile;
+                        wp_reset_postdata();
+                     else :
+                        echo '<p class="text-center">Chưa có tướng nào được thêm.</p>';
+                     endif;
+                     ?>
 
                   </div>
-                </div>
+               </div>
             </div>
+
             <div class="button-all">
-               <a class="button primary is-outline is-smaller center all-button" style="border-radius:99px;">
-                  <span>Xem Tất Cả </span>
+               <a href="<?php echo get_post_type_archive_link('quan_ly_tuong'); ?>" 
+                  class="button primary is-outline is-smaller center all-button" 
+                  style="border-radius:99px;">
+                  <span>Xem Tất Cả</span>
                </a>
             </div>
          </div>
+
          <style>
             #section_1157224611 {
                padding-top: 50px;
@@ -298,12 +227,15 @@
             #section_1157224611 .box-image img {
                border-radius: 12px;
                transition: transform 0.3s ease;
+               width: 100%;
+               height: auto;
             }
             #section_1157224611 .box-image img:hover {
                transform: scale(1.05);
             }
          </style>
       </section>
+
       <section class="section" id="section_814329341">
          <div class="bg section-bg fill bg-fill  bg-loaded">
             <div class="section-bg-overlay absolute fill"></div>
@@ -315,434 +247,101 @@
             <div class="row" id="row-485541358">
                <div id="col-1394755986" class="col medium-8 small-12 large-8">
                   <div class="col-inner">
-                     <div class="row" id="row-805470903">
-                        <div id="col-2027975934" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
+                     <div class="row" id="row-tinh-nang">
+                           <?php
+                           $args = array(
+                              'post_type'      => 'tinh_nang',
+                              'posts_per_page' => 18,
+                              'post_status'    => 'publish',
+                           );
+                           $query = new WP_Query($args);
+                           $i = 0;
+
+                           if ($query->have_posts()) :
+                              while ($query->have_posts()) : $query->the_post();
+                                 // Mỗi hàng có 3 cột
+                                 if ($i % 3 === 0 && $i > 0) echo '</div><div class="row">';
+                           ?>
+                              <div id="col-<?php echo wp_rand(); ?>" class="col medium-4 small-12 large-4">
+                                 <div class="col-inner">
+                                       <div class="box has-hover box-text-bottom">
+                                          <div class="box-image">
+                                             <div class="">
+                                                   <a href="<?php the_permalink(); ?>">
+                                                      <?php if (has_post_thumbnail()) : ?>
+                                                         <?php the_post_thumbnail('medium', array('loading' => 'lazy', 'decoding' => 'async')); ?>
+                                                      <?php else : ?>
+                                                         <img loading="lazy" decoding="async" width="154" height="79"
+                                                               src="<?php echo get_template_directory_uri(); ?>/assets/images/no-image.png"
+                                                               alt="<?php the_title(); ?>">
+                                                      <?php endif; ?>
+                                                   </a>
+                                             </div>
+                                          </div>
+                                          <div class="box-text text-center">
+                                             <div class="box-text-inner">
+                                                   <div class="container section-title-container">
+                                                      <h4 class="section-title section-title-center">
+                                                         <b></b>
+                                                         <a href="<?php the_permalink(); ?>" class="section-title-main" style="font-size:68%;color:rgb(110,137,225);">
+                                                               <?php the_title(); ?>
+                                                         </a>
+                                                         <b></b>
+                                                      </h4>
+                                                   </div>
+                                             </div>
+                                          </div>
                                        </div>
-                                    </div>
                                  </div>
                               </div>
-                           </div>
-                        </div>
-                        <div id="col-1054905851" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-249179274" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row" id="row-399790835">
-                        <div id="col-1155378634" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-1786049014" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-1344101661" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row" id="row-749053105">
-                        <div id="col-1662671950" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-1248306717" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-1484269961" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row" id="row-823554921">
-                        <div id="col-2059797688" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-867769717" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-636485111" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row" id="row-246097289">
-                        <div id="col-1198942168" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-1417431043" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-686393139" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row" id="row-950375010">
-                        <div id="col-2048875734" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-1411022158" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-1873734711" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row" id="row-1428454263">
-                        <div id="col-1951626671" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-651641383" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div id="col-961611348" class="col medium-4 small-12 large-4">
-                           <div class="col-inner">
-                              <div class="box has-hover   has-hover box-text-bottom">
-                                 <div class="box-image">
-                                    <div class="">
-                                       <img loading="lazy" decoding="async" width="154" height="79" src="http://localhost/wordpress/wp-content/uploads/2025/10/Frame-81.png" class="attachment- size-" alt="">											
-                                    </div>
-                                 </div>
-                                 <div class="box-text text-center">
-                                    <div class="box-text-inner">
-                                       <div class="container section-title-container">
-                                          <h4 class="section-title section-title-center"><b></b><span class="section-title-main" style="font-size:68%;color:rgb(110, 137, 225);">1. cấp tướng &amp; nâng bậc</span><b></b></h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                           <?php
+                                 $i++;
+                              endwhile;
+                              wp_reset_postdata();
+                           else :
+                              echo '<p>Chưa có bài viết tính năng nào.</p>';
+                           endif;
+                           ?>
                      </div>
                   </div>
                </div>
-               <div id="col-1467175334" class="col medium-4 small-12 large-4 col-divided">
+            <div id="col-1467175334" class="col medium-4 small-12 large-4 col-divided">
                <div class="swiper myVerticalSlider">
                   <div class="swiper-wrapper">
-                  <!-- Slide 1 -->
-                  <div class="swiper-slide">
-                     <div class="slide-box">
-                     <img src="http://localhost/wordpress/wp-content/uploads/2025/10/image-28.png" alt="">
-                     <h4>1. CẤP TƯỚNG &amp; NÂNG BẬC</h4>
-                     </div>
-                  </div>
+                     <?php
+                     $args = array(
+                        'post_type'      => 'tinh_nang',
+                        'posts_per_page' => 10,
+                        'post_status'    => 'publish',
+                        'orderby'        => 'date',
+                        'order'          => 'DESC',
+                     );
+                     $query = new WP_Query($args);
 
-                  <!-- Slide 2 -->
-                  <div class="swiper-slide">
-                     <div class="slide-box">
-                     <img src="http://localhost/wordpress/wp-content/uploads/2025/10/image-28.png" alt="">
-                     <h4>2. HỆ THỐNG TƯỚNG</h4>
-                     </div>
-                  </div>
-
-                  <!-- Slide 3 -->
-                  <div class="swiper-slide">
-                     <div class="slide-box">
-                     <img src="http://localhost/wordpress/wp-content/uploads/2025/10/image-28.png" alt="">
-                     <h4>3. KỸ NĂNG ĐẶC BIỆT</h4>
-                     </div>
-                  </div>
-
-                  <!-- Slide 4 -->
-                  <div class="swiper-slide">
-                     <div class="slide-box">
-                     <img src="http://localhost/wordpress/wp-content/uploads/2025/10/image-28.png" alt="">
-                     <h4>4. TEST</h4>
-                     </div>
-                  </div>
+                     if ($query->have_posts()) :
+                        while ($query->have_posts()) : $query->the_post();
+                              $img_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                              if (!$img_url) {
+                                 $img_url = get_template_directory_uri() . '/assets/images/no-image.png'; // ảnh fallback nếu không có thumbnail
+                              }
+                              ?>
+                              <!-- Slide <?php echo $count; ?> -->
+                              <div class="swiper-slide">
+                              <div class="slide-box">
+                                 <a href="<?php the_permalink(); ?>">
+                                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>">
+                                    <h4><?php echo  get_the_title(); ?></h4>
+                                 </a>
+                              </div>
+                              </div>
+                              <?php
+                              $count++;
+                        endwhile;
+                        wp_reset_postdata();
+                     else :
+                        echo '<p>Chưa có bài viết tính năng nào.</p>';
+                     endif;
+                     ?>
                   </div>
                </div>
             </div>
@@ -839,7 +438,6 @@
                <div class="slide fix-image" >
                <p>
                   <a href="#"><img class="carousel-image" alt="Image Caption" src="<?php echo $image['url']; ?>"></a>
-                  <span> Curabitur nec dapibus neque. Aenean orci enim, rutrum ac lacinia in, dapibus sit amet lorem.	</span>
                </p>
                </div>
                <?php endwhile; ?>
@@ -858,19 +456,18 @@
                background-color: rgba(255, 249, 249, 0);
             }
          </style>
-         </section>
-
+      </section>
       <section class="section" id="section_1159627293">
          <div class="bg section-bg fill bg-fill bg-loaded"></div>
          <div class="section-content relative container">
             <div class="container section-title-container">
                <h3 class="section-title section-title-normal">
-               <span class="section-title-main " style="color:rgb(18, 142, 239);">BLOG/TIN TỨC TQHT</span>
+                  <span class="section-title-main" style="color:rgb(18, 142, 239);">BLOG/TIN TỨC TQHT</span>
                </h3>
             </div>
 
             <div class="slider-wrapper relative" id="slider-387123849">
-               <div class="slider slider-nav-circle slider-nav-large slider-nav-light slider-style-normal is-draggable flickity-enabled" 
+               <div class="slider slider-nav-circle slider-nav-large slider-nav-light slider-style-normal is-draggable"
                   data-flickity-options='{
                      "cellAlign": "left",
                      "imagesLoaded": true,
@@ -884,82 +481,51 @@
                      "adaptiveHeight": true,
                      "draggable": true,
                      "pageDots": true
-                  }' tabindex="0">
+                  }'>
 
-               <!-- Mỗi cột là 1 cell riêng -->
-               <div class="col medium-4 small-12 large-4 slider-cell">
-                  <div class="col-inner">
-                     <div class="box has-hover box-text-bottom">
-                     <div class="box-image">
-                        <img loading="lazy" decoding="async" width="550" height="350" src="http://localhost/wordpress/wp-content/uploads/2025/10/673c5f2cf12e1427702588fb03a247b9ff3ce08b.png" alt="">
-                     </div>
-                     <div class="box-text text-center">
-                        <h4>Sự Kiện</h4>
-                        <p>Test</p>
-                     </div>
+                  <?php
+                  // Truy vấn bài viết
+                  $args = array(
+                     'post_type'      => 'post',
+                     'posts_per_page' => 8,
+                     'post_status'    => 'publish',
+                  );
+                  $query = new WP_Query($args);
+
+                  if ($query->have_posts()) :
+                     while ($query->have_posts()) : $query->the_post();
+                        $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
+                        if (!$thumb_url) {
+                           $thumb_url = get_template_directory_uri() . '/assets/images/no-image.jpg'; // ảnh fallback
+                        }
+                  ?>
+                  <!-- Mỗi bài viết là 1 cell -->
+                  <div class="col medium-4 small-12 large-4 slider-cell">
+                     <div class="col-inner">
+                        <div class="box has-hover box-text-bottom">
+                           <div class="box-image">
+                              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                 <img loading="lazy" decoding="async" width="550" height="350"
+                                    src="<?php echo esc_url($thumb_url); ?>"
+                                    alt="<?php the_title_attribute(); ?>">
+                              </a>
+                           </div>
+                           <div class="box-text text-center">
+                              <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                              <p><?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?></p>
+                           </div>
+                        </div>
                      </div>
                   </div>
-               </div>
-
-               <div class="col medium-4 small-12 large-4 slider-cell">
-                  <div class="col-inner">
-                     <div class="box has-hover box-text-bottom">
-                     <div class="box-image">
-                        <img loading="lazy" decoding="async" width="550" height="350" src="http://localhost/wordpress/wp-content/uploads/2025/10/673c5f2cf12e1427702588fb03a247b9ff3ce08b.png" alt="">
-                     </div>
-                     <div class="box-text text-center">
-                        <h4>Sự Kiện</h4>
-                        <p>Test</p>
-                     </div>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="col medium-4 small-12 large-4 slider-cell">
-                  <div class="col-inner">
-                     <div class="box has-hover box-text-bottom">
-                     <div class="box-image">
-                        <img loading="lazy" decoding="async" width="550" height="350" src="http://localhost/wordpress/wp-content/uploads/2025/10/673c5f2cf12e1427702588fb03a247b9ff3ce08b.png" alt="">
-                     </div>
-                     <div class="box-text text-center">
-                        <h4>Sự Kiện</h4>
-                        <p>Test</p>
-                     </div>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="col medium-4 small-12 large-4 slider-cell">
-                  <div class="col-inner">
-                     <div class="box has-hover box-text-bottom">
-                     <div class="box-image">
-                        <img loading="lazy" decoding="async" width="550" height="350" src="http://localhost/wordpress/wp-content/uploads/2025/10/673c5f2cf12e1427702588fb03a247b9ff3ce08b.png" alt="">
-                     </div>
-                     <div class="box-text text-center">
-                        <h4>Sự Kiện</h4>
-                        <p>Test</p>
-                     </div>
-                     </div>
-                  </div>
-               </div>
-
-
-               <div class="col medium-4 small-12 large-4 slider-cell">
-                  <div class="col-inner">
-                     <div class="box has-hover box-text-bottom">
-                     <div class="box-image">
-                        <img loading="lazy" decoding="async" width="550" height="350" src="http://localhost/wordpress/wp-content/uploads/2025/10/673c5f2cf12e1427702588fb03a247b9ff3ce08b.png" alt="">
-                     </div>
-                     <div class="box-text text-center">
-                        <h4>Sự Kiện</h4>
-                        <p>Test</p>
-                     </div>
-                     </div>
-                  </div>
-               </div>
+                  <?php
+                     endwhile;
+                     wp_reset_postdata();
+                  else :
+                     echo '<p class="text-center">Chưa có bài viết nào.</p>';
+                  endif;
+                  ?>
 
                </div>
-
                <div class="loading-spin dark large centered" style="display: none;"></div>
             </div>
          </div>
@@ -971,7 +537,7 @@
                background-color: #fff;
             }
          </style>
-      </section>
+      </section>   
    </div>
 </main>
 <?php get_footer(); ?>
