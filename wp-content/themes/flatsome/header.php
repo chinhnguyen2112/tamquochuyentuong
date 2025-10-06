@@ -6,6 +6,8 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/joaopereirawd/sliding-carousel/sliding-carousel.css">
+	<script src="https://cdn.jsdelivr.net/gh/joaopereirawd/sliding-carousel/sliding-carousel.min.js"></script>
 
 	<?php wp_head(); ?>
 </head>

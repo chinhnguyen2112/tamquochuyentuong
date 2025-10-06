@@ -119,7 +119,6 @@ class SlidingCarousel {
         const mid = this.mIndex;
         const sin = this.sinus;
         const displayWidth = 550;
-        const displayHeight = 350;
         const containerWidth = this.container.clientWidth;
         const middle = (containerWidth - displayWidth) / 2;
 
@@ -136,24 +135,27 @@ class SlidingCarousel {
             const diff = sin[i] * this.options.squeeze;
 
             const left = posX;
-            posX += displayWidth * 0.7 + diff; // khoảng cách giữa các slide
+            posX += displayWidth * 0.7 + diff; 
+
+            const isCenter = i === mid;
+            const height = isCenter ? 400 : 350; 
 
             if (animate) {
-                slide.style.transition = `left ${this.options.animate}ms ease, top ${this.options.animate}ms ease, opacity ${this.options.animate}ms ease`;
+                slide.style.transition = `left ${this.options.animate}ms ease, top ${this.options.animate}ms ease, opacity ${this.options.animate}ms ease, height ${this.options.animate}ms ease`;
             } else {
                 slide.style.transition = "none";
             }
 
             slide.style.width = displayWidth + "px";
-            slide.style.height = displayHeight + "px";
+            slide.style.height = height + "px"; 
             slide.style.top = top + "px";
             slide.style.left = (left + middle - posX / 2) + "px";
-            slide.style.zIndex = i === mid ? 10 : 10 - idx;
-            slide.style.opacity = i === mid ? 1 : 0.6;
+            slide.style.zIndex = isCenter ? 10 : 10 - idx;
+            slide.style.opacity = isCenter ? 1 : 0.6;
 
             if (this.options.shadow) slide.classList.add("shadow");
 
-            if (i === mid) {
+            if (isCenter) {
                 const caption = slide.querySelector("span");
                 if (caption) {
                     caption.style.display = "block";

@@ -1,6 +1,4 @@
 <?php get_header(); ?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/joaopereirawd/sliding-carousel/sliding-carousel.css">
-<script src="https://cdn.jsdelivr.net/gh/joaopereirawd/sliding-carousel/sliding-carousel.min.js"></script>
 <main id="main" class="">
    <div id="content" role="main" class="content-area">
       <section class="section container has-parallax" id="section_hero">
@@ -379,7 +377,7 @@
                <?php endwhile; ?>
             </div>
             <div class="slide-nav container">
-               <?php while( have_rows('slide_vip', 'option') ): the_row(); 
+               <?php while( have_rows('slide_vip_2', 'option') ): the_row(); 
                         $image = get_sub_field('image', 'option'); 
                ?>
                <div class="nav-slide"><img src="<?php echo $image['url']; ?>" alt=""></div>
@@ -412,10 +410,7 @@
             }
          </style>
       </section> 
-      <section class="section" id="section_1804977433">
-         <div class="bg section-bg fill bg-fill bg-loaded">
-            <div class="section-bg-overlay absolute fill"></div>
-         </div>
+      <section class="section" id="section_1804977433" style="background:rgb(255 255 255); ">
          <div class="section-content relative">
             <div class="container section-title-container">
                <h3 class="section-title section-title-normal">
