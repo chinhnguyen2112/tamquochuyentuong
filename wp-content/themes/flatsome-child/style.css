@@ -275,7 +275,7 @@ tôi code tiếp */
   background-color: rgba(85, 85, 85, 0) !important;
 }
 
-.section-content
+.section-content.relative p
 {
   padding-right:30px;
   padding-left:30px;
