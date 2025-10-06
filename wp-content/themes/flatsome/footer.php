@@ -3,7 +3,7 @@
    <div class="footer-widgets footer footer-2 dark">
       <div class="row dark large-columns-4 mb-0">
          <!-- Cột 1: Logo và mô tả --> 
-         <div id="block-14" class="col pb-0 widget widget_block">
+         <div id="block-14" class="col pb-0 widget widget_block widget_1">
             <div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-8cf370e7 wp-block-group-is-layout-flex">
                <div class="wp-block-group">
                   <div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
@@ -14,28 +14,33 @@
             </div>
          </div>
          <!-- Cột 2: Navigation Links --> 
-         <div id="block-23" class="col pb-0 widget widget_block widget_add">
+         <div id="block-23" class="col pb-0 widget widget_block widget_add flex-end">
             <div class="footer-navigation">
-               <ul class="footer-menu">
-                  <li><a href="<?php echo home_url('/giftcode-free'); ?>">Giftcode Free</a></li>
-                  <li><a href="<?php echo home_url('/tin-tuc-tuong'); ?>">Tin tức tướng</a></li>
-                  <li><a href="<?php echo home_url('/hoat-dong'); ?>">Hoạt động</a></li>
-                  <li><a href="<?php echo home_url('/dmca'); ?>">DMCA</a></li>
-               </ul>
+               <?php
+               wp_nav_menu(array(
+                  'theme_location' => 'footer',   // 👉 vị trí “Footer Menu” trong theme
+                  'container'      => false,
+                  'menu_class'     => 'footer-menu', // giữ nguyên class cũ để CSS hoạt động
+                  'fallback_cb'    => false,
+               ));
+               ?>
             </div>
          </div>
          <!-- Cột 3: Additional Links --> 
-         <div id="block-24" class="col pb-0 widget widget_block widget_add">
+         <div id="block-24" class="col pb-0 widget widget_block widget_add flex-end">
             <div class="footer-navigation">
-               <ul class="footer-menu">
-                  <li><a href="<?php echo home_url('/tinh-nang'); ?>">Tính năng</a></li>
-                  <li><a href="<?php echo home_url('/nap-the'); ?>">Nạp thẻ</a></li>
-                  <li><a href="<?php echo home_url('/tranh-chuc'); ?>">Tranh chức/ Hình nền</a></li>
-               </ul>
+               <?php
+               wp_nav_menu(array(
+                  'menu'        => 'My Account Menu', // 👉 gọi đúng menu theo tên
+                  'container'   => false,
+                  'menu_class'  => 'footer-menu',
+                  'fallback_cb' => false,
+               ));
+               ?>
             </div>
          </div>
          <!-- Cột 4: Download Buttons & QR Code --> 
-         <div id="block-25" class="col pb-0 widget widget_block widget_add">
+         <div id="block-25" class="col pb-0 widget widget_block widget_add widget_2 flex-end">
             <div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9d6595d7 wp-block-columns-is-layout-flex column-footer">
                <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:50%">
                   <?php while( have_rows('footer_download', 'option') ): the_row(); $image = get_sub_field('image', 'option'); $link = get_sub_field('link','option'); $alt = get_sub_field('alt','option'); ?> 

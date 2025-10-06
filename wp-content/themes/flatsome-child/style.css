@@ -126,15 +126,13 @@ Version: 3.0
 
 .row.mt-3.social
 {
-  position: absolute;
-  top:260px;
+  /* position: absolute; */
+  /* top:280px;
   padding:30px;
-  left: 100px;
+  left: 100px; */
+  margin-top:-30px;
 }
-.widget_add
-{
-  margin-top: 70px !important;
-}
+
 
 /* slide vip */
 .slide-vip, .slide-nav { display:flex; overflow:hidden; }
@@ -275,11 +273,46 @@ tôi code tiếp */
   background-color: rgba(85, 85, 85, 0) !important;
 }
 
-.section-content.relative p
+.p-banner
 {
   padding-right:30px;
   padding-left:30px;
   margin-top:-150px;
 }
 
+
+.footer-2 {
+    background-color: #AED2E2 !important;
+}
+
+
+/* tôi css đẹp hơn */
+.widget_1
+{
+  max-width:40% !important;
+  flex-basis: 40% !important;
+}
+
+.widget_add
+{
+  margin-top: 85px !important;
+  max-width:15% !important;
+}
+
+.widget_2
+{
+  max-width:30% !important;
+  flex-basis: 30% !important;
+}
+.copyright-text
+{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-end
+{
+  display: flex !important;
+  justify-content: flex-end !important;
+}
 
