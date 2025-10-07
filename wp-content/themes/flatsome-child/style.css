@@ -336,6 +336,10 @@ tôi code tiếp */
         max-width: 90%;
         height: 550px; /* giảm chiều cao */
     }
+    .slide-nav .nav-slide
+    {
+        border-radius: 0px !important;
+    }
 
     .myVerticalSlider .slide-box h4 {
         font-size: 15px;
@@ -344,7 +348,7 @@ tôi code tiếp */
     .slide-nav .nav-slide img {
         width: 130px !important;
         height: 160px !important;
-        border-radius: 15px;
+        border-radius: 0px !important;
     }
 
     #carousel {
@@ -376,7 +380,7 @@ tôi code tiếp */
     .slide-nav .nav-slide img {
         width: 100px !important;
         height: 130px !important;
-        border-radius: 12px;
+        border-radius: 0px !important;
         margin-right: 8px;
     }
 
@@ -385,11 +389,12 @@ tôi code tiếp */
         transform: none;
         display: flex;
         justify-content: center;
-        gap: 8px;
+        gap: 0px !important;
+        margin-top: -60px !important;
     }
 
     #carousel {
-        height: 300px;
+        height: 250px;
     }
 
     #carousel .navigate-left {
@@ -418,7 +423,7 @@ tôi code tiếp */
     .slide-nav .nav-slide img {
         width: 70px !important; /* ảnh nhỏ hơn */
         height: 90px !important;
-        border-radius: 10px;
+        border-radius: 0px !important;
         margin-right: 5px;
     }
 
@@ -432,7 +437,7 @@ tôi code tiếp */
     }
 
     #carousel {
-        height: 250px;
+        height: 200px;
     }
 
     #carousel .navigate-left {
