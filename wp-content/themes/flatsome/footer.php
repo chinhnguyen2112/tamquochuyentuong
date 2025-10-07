@@ -18,9 +18,8 @@
             <div class="footer-navigation">
                <?php
                wp_nav_menu(array(
-                  'theme_location' => 'footer',   // 👉 vị trí “Footer Menu” trong theme
-                  'container'      => false,
-                  'menu_class'     => 'footer-menu', // giữ nguyên class cũ để CSS hoạt động
+                  'theme_location' => 'footer',   
+                  'menu_class'     => 'footer-menu',
                   'fallback_cb'    => false,
                ));
                ?>
@@ -31,7 +30,7 @@
             <div class="footer-navigation">
                <?php
                wp_nav_menu(array(
-                  'menu'        => 'My Account Menu', // 👉 gọi đúng menu theo tên
+                  'menu'        => 'My Account Menu', 
                   'container'   => false,
                   'menu_class'  => 'footer-menu',
                   'fallback_cb' => false,

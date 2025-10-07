@@ -92,13 +92,6 @@
          </style>
       </section>
       <section class="section" id="section_557966900">
-         <!-- Background Section -->
-         <div class="section-bg fill bg-fill bg-loaded" 
-               style="background-image: url('http://localhost/wordpress/wp-content/uploads/2016/08/dummy-1.jpg');"></div>
-         <!-- Optional Overlay -->
-         <div class="title-overlay" 
-               style="background-color: rgba(251, 251, 251, 1); position:absolute; top:0; left:0; width:100%; height:100%;"></div>
-
          <div class="section-content relative container">
             <!-- Page Header / Title -->
             <div class="page-header-wrapper" id="page-header-1859816242">
@@ -188,7 +181,7 @@
                                  <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php the_title_attribute(); ?>">
                               </div>
                               <div class="box-text text-center">
-                                 <a href="<?php the_permalink(); ?>" class="button primary is-outline" style="border-radius:99px;">
+                                 <a href="<?php the_permalink(); ?>" class="button primary is-outline new-button" style="border-radius:99px;">
                                     <span><?php the_title(); ?></span>
                                  </a>
                               </div>
@@ -417,7 +410,7 @@
                <span class="section-title-main short-underline" style="color:rgb(18, 142, 239);">
                   HÌNH NỀN TAM QUỐC HUYỄN TƯỚNG ĐẸP 
                </span>
-               <span class="section-title-main" style="color:rgb(18, 142, 239); ">
+               <span class="section-title-main no-border">
                  <a href="#"> Xem tất cả </a> 
                </span>
                </h3>
@@ -436,8 +429,6 @@
                </p>
                </div>
                <?php endwhile; ?>
-               <div class="navigate-left"><img src="https://images.vexels.com/media/users/3/128922/isolated/preview/1cec3d0747fc796080b17ca07e14d187--cone-redondo-da-seta-do-aeroporto-de-viagem-by-vexels.png" width="35px"></div>
-               <div class="navigate-right"><img src="https://images.vexels.com/media/users/3/128927/isolated/preview/25652eb37d257753ffab9b4ac8edfa28--cone-de-rodada-do-aeroporto-de-viagem-seta-by-vexels.png" width="35px"></div>
             </div>
          </div>
 
@@ -453,7 +444,6 @@
          </style>
       </section>
       <section class="section" id="section_1159627293">
-         <div class="bg section-bg fill bg-fill bg-loaded"></div>
          <div class="section-content relative container">
             <div class="container section-title-container">
                <h3 class="section-title section-title-normal">

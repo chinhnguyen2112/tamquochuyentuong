@@ -1,24 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-  new Swiper(".myVerticalSlider", {
-    direction: "vertical",
-    slidesPerView: 3,       // Hiển thị 3 slide cùng lúc
-    spaceBetween: 20,       // khoảng cách giữa slides
-    loop: true,
-    mousewheel: {
-      releaseOnEdges: true,
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    }
-  });
-});
-
+  document.addEventListener("DOMContentLoaded", function() {
+                    new Swiper(".myVerticalSlider", {
+                        direction: "vertical",
+                        slidesPerView: 3, // Hiển thị 3 slide cùng lúc
+                        spaceBetween: 20, // khoảng cách giữa slides
+                        loop: true,
+                        mousewheel: {
+                            releaseOnEdges: true,
+                        },
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                            dynamicBullets: true,
+                        }
+                    });
+                });
 
 document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.slide-vip .slide');
@@ -56,10 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(current); // render lần đầu
 });
 
-
-// tôi code thêm swiper
-
-
 class SlidingCarousel {
     constructor(container, options = {}) {
         this.container = container;
@@ -68,22 +63,22 @@ class SlidingCarousel {
         this.mIndex = Math.floor(this.images.length / 2);
 
         this.sinus = this._generateSinus(this.images.length);
+
         this.setupEvents();
         this.doLayout(false);
+
+        window.addEventListener("resize", () => this.doLayout(false));
     }
 
     _generateSinus(total) {
         let sinus = [0];
         let freq = 0;
         const middle = Math.floor(total / 2);
-        let sinsum = 0;
 
         for (let n = 1; n < total; n++) {
             sinus[n] = (n <= middle) ? Math.sin(freq += (1.6 / middle)) : sinus[total - n];
-            if (n < middle) sinsum += sinus[n];
         }
 
-        this.sinsum = sinsum * this.options.squeeze;
         return sinus;
     }
 
@@ -98,8 +93,16 @@ class SlidingCarousel {
             slide.querySelector('a')?.addEventListener('click', e => {
                 e.preventDefault();
                 const idx = this.images.indexOf(slide);
-                while (idx !== this.mIndex) {
-                    this.next();
+                if (idx === this.mIndex) return;
+
+                if (idx < this.mIndex) {
+                    for (let i = 0; i < this.mIndex - idx; i++) {
+                        this.prev();
+                    }
+                } else {
+                    for (let i = 0; i < idx - this.mIndex; i++) {
+                        this.next();
+                    }
                 }
             });
         });
@@ -117,50 +120,67 @@ class SlidingCarousel {
 
     doLayout(animate) {
         const mid = this.mIndex;
-        const sin = this.sinus;
-        const displayWidth = 550;
         const containerWidth = this.container.clientWidth;
-        const middle = (containerWidth - displayWidth) / 2;
+        var widtd_mid = "70%";
+        var left_side = "15%";
+        if (containerWidth <= 1024) {
+            widtd_mid = "80%";
+            left_side = "10%";
 
-        // Ẩn tất cả caption
+        } else {}
         this.container.querySelectorAll('span').forEach(s => {
             s.style.display = "none";
             s.style.opacity = 0;
         });
 
-        let posX = 0;
         this.images.forEach((slide, i) => {
-            const idx = Math.abs(i - mid);
-            const top = idx * 15;
-            const diff = sin[i] * this.options.squeeze;
-
-            const left = posX;
-            posX += displayWidth * 0.7 + diff; 
-
-            const isCenter = i === mid;
-            const height = isCenter ? 400 : 350; 
-
             if (animate) {
-                slide.style.transition = `left ${this.options.animate}ms ease, top ${this.options.animate}ms ease, opacity ${this.options.animate}ms ease, height ${this.options.animate}ms ease`;
+                slide.style.transition = `all ${this.options.animate}ms ease-in-out`;
             } else {
                 slide.style.transition = "none";
             }
 
-            slide.style.width = displayWidth + "px";
-            slide.style.height = height + "px"; 
-            slide.style.top = top + "px";
-            slide.style.left = (left + middle - posX / 2) + "px";
-            slide.style.zIndex = isCenter ? 10 : 10 - idx;
-            slide.style.opacity = isCenter ? 1 : 0.6;
-
             if (this.options.shadow) slide.classList.add("shadow");
 
+            const isCenter = i === mid;
+            const isLeft = i === mid - 1;
+            const isRight = i === mid + 1;
+
             if (isCenter) {
+                slide.style.display = "block";
+                slide.style.width = widtd_mid;
+                slide.style.height = '100%';
+                slide.style.left = left_side;
+                slide.style.top = '0';
+                slide.style.zIndex = 10;
+                slide.style.opacity = 1;
+                slide.style.right = 'auto';
+
                 const caption = slide.querySelector("span");
                 if (caption) {
                     caption.style.display = "block";
                     caption.style.opacity = 0.7;
                 }
+            } else if (isLeft) {
+                slide.style.display = "block";
+                slide.style.width = '50%';
+                slide.style.height = '80%';
+                slide.style.left = '0';
+                slide.style.top = '10%';
+                slide.style.zIndex = 9;
+                slide.style.opacity = 0.6;
+                slide.style.right = 'auto';
+            } else if (isRight) {
+                slide.style.display = "block";
+                slide.style.width = '50%';
+                slide.style.height = '80%';
+                slide.style.right = '0';
+                slide.style.top = '10%';
+                slide.style.zIndex = 9;
+                slide.style.opacity = 0.6;
+                slide.style.left = 'auto';
+            } else {
+                slide.style.display = "none";
             }
         });
     }
